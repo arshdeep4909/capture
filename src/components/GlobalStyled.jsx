@@ -5,10 +5,10 @@ const GlobalStyle = createGlobalStyle`
         margin:  0;
         padding: 0;
         box-sizing: border-box;
-
     }
     body{
         background: #1b1b1b ;
+        font-family: 'Inter', sans-serif;
     }
     button{
         font-weight: bold;
@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
         background: transparent;
         color: white;
         transition: all 0.5s ease;
+        font-family: 'Inter', sans-serif;
         &:hover{
             background-color: #23d997;
             color: white;
@@ -36,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
         color: white;
     }
     h4{
+        font-size: 2rem;
         font-weight: bold;
     }
     span{
@@ -52,3 +54,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
+
+//Adding fonts
+// font-family: 'Inter', sans-serif;
+// font-family: 'Lobster', cursive;
