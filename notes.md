@@ -22,3 +22,70 @@ then render out our component - LOOK AT NOTES
 //
 Helps us avoid the error becasue as soon as our movie is defined the situation holds true
 and we render out our component
+
+# Framer Motion
+
+so in the component that we want to put framer animation on, we have to
+enclose it within <motion.div>, but it already enclosed with in a styled
+div
+for example
+<Work variants={pageAnimation} initial="hidden" animate="show">
+<Movie>
+
+<h2>The Athlete</h2>
+<div className="line"></div>
+<Link to="/work/the-athlete">
+<img src={athlete} alt="athlete" />
+</Link>
+</Movie>
+</Work>
+
+In this case we can go down to where we add styled div and we can
+add the framer motion there. i.e
+
+const Work = styled(motion.div)`<!-- right here --> min-height: 100vh; overflow: hidden;`;
+
+--Animate Presence
+we add this where we are doing our routing and import animate presence there.
+this tells react when we are exiting so it can add the exit animation at that time.
+
+1. the next step is too enclose our switch tag within Animate Presence i.e
+
+function App() {
+const Location = useLocation(); // using useLocation
+console.log(Location);
+return (
+
+<div className="App">
+<GlobalStyle />
+{/_ importing file to apply global styles _/}
+<Nav />
+<AnimatePresence exitBeforeEnter> // right here
+exitBeforeEnter waits for the page to fade out EXIT and then lets the other page fade in 
+<Switch location={location} key={location.pathname}> //right here 
+{/_ switch also means that the first time our url matches any path we render that
+component _/}
+<Route path="/" exact>
+{/_ exact esnures that we render AboutUs only when we have /
+i.e path is exactly equal to the value that we provided _/}
+<AboutUs />
+</Route>
+<Route path="/work" exact>
+<OurWork />
+</Route>
+</Switch>
+</AnimatePresence> // right here
+</div>
+);
+}
+
+2. we import useLocation from react-router-DOM
+
+import { Switch, Route, useLocation } from "react-router-dom";
+
+3. we set Location = useLocation();
+
+4. pass Location in our switch i.e
+   location={location} key={location.pathname}
+   location.pathname provieds a unique key which tell framer motion that key
+   has changed so we are rendering a new(different) page
