@@ -13,6 +13,7 @@ const Nav = () => {
 
       <ul>
         <li>
+          {/* we use link and not 'a' because we are using react router  */}
           <Link to="/">1. About us</Link>
         </li>
         <li>
