@@ -89,3 +89,27 @@ import { Switch, Route, useLocation } from "react-router-dom";
    location={location} key={location.pathname}
    location.pathname provieds a unique key which tell framer motion that key
    has changed so we are rendering a new(different) page
+
+# Framer Motion and Styled exception
+
+const Work = styled(motion.div)`opacity: 1; width: 50vw;`
+
+here, we said styled(motion.div) because we pass Work in our file rather
+than motion.div because we want to give it the style that we define here,
+at the same time we want to enclose it with motion.div because we want the
+animation to be there.
+
+# Stagger Children
+
+transition: {
+staggerChildren: 0.25,
+duration: 0.5,
+when: "beforeChildren",
+},
+this property means if staggerChildren is 0.01, the first child will be delayed by 0 seconds, the second by 0.01, the third by 0.02 and so on.
+i.e
+first child animates
+----wait for 0.25-----
+second child animates
+-----wait for 0.25s----
+third child animtes
