@@ -113,3 +113,37 @@ first child animates
 second child animates
 -----wait for 0.25s----
 third child animtes
+
+# Children property
+
+if I wrap a part of code in a div, then I can access it in another file using Children in props
+for example
+
+1. we create a component here with Toggle function.
+
+import React, { useState } from "react";
+
+const Toggle = ({ children }) => {
+const [toggle, setToggle] = useState(true);
+return <div onClick={() => setToggle(!toggle)}>{toggle ? children : ""}</div>;
+};
+
+export default Toggle;
+
+2. Now, I go in a different file and add a piece of code within the <Toggle> tag
+
+ <Toggle>
+        <div className="questions">
+          <h4>How Do I Start?</h4>
+          <div className="answer">
+            <p>Lorem ipsum dolor sit.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
+              laboriosam?
+            </p>
+          </div>
+          <div className="faq-line"></div>
+        </div>
+      </Toggle>
+
+--so now I am toggling all the content within the tag as I am accessing it using children

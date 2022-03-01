@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { About, Description, Image, Hide } from "../styles";
+import Toggle from "./Toggle";
 
 function FaqSection() {
   return (
@@ -8,17 +9,20 @@ function FaqSection() {
       <h2>
         Any questions? <span>FAQ</span>
       </h2>
-      <div className="questions">
-        <h4>How Do I Start?</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit.</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
-            laboriosam?
-          </p>
+
+      <Toggle>
+        <div className="questions">
+          <h4>How Do I Start?</h4>
+          <div className="answer">
+            <p>Lorem ipsum dolor sit.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
+              laboriosam?
+            </p>
+          </div>
+          <div className="faq-line"></div>
         </div>
-        <div className="faq-line"></div>
-      </div>
+      </Toggle>
 
       <div className="questions">
         <h4>What Products do you Offer?</h4>
