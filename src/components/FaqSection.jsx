@@ -3,10 +3,18 @@ import styled from "styled-components";
 import { About, Description, Image, Hide } from "../styles";
 import Toggle from "./Toggle";
 import { AnimateSharedLayout } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { scrollReveal } from "../animation";
 
 function FaqSection() {
+  const [element, controls] = useScroll();
   return (
-    <Faq>
+    <Faq
+      variants={scrollReveal}
+      ref={element}
+      animate={controls}
+      initial="hidden"
+    >
       <h2>
         Any questions? <span>FAQ</span>
       </h2>
@@ -55,6 +63,7 @@ function FaqSection() {
 
 const Faq = styled(About)`
   display: block;
+  overflow: hidden;
   span {
     display: block;
   }
