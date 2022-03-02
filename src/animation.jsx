@@ -1,12 +1,9 @@
 export const pageAnimation = {
   hidden: {
     opacity: 0,
-    y: 150,
   },
-
   show: {
     opacity: 1,
-    y: 0,
     transition: {
       staggerChildren: 0.25,
       duration: 0.5,
@@ -14,20 +11,17 @@ export const pageAnimation = {
     },
   },
   exit: {
-    //this defines what happnes when we leave the page
     opacity: 0,
-    y: 50,
-    transition: {
-      duration: 0.5,
-    },
+    transition: { ease: "easeOut", duration: 0.5 },
   },
 };
 
 export const titleAnim = {
-  hidden: { y: 200 },
+  hidden: { y: 200, opacity: 0 },
   show: {
     y: 0,
-    transition: { duration: 0.75, ease: "easeOut" },
+    opacity: 1,
+    transition: { type: "tween", duration: 0.75, ease: "easeOut" },
   },
 };
 
@@ -66,15 +60,25 @@ export const slider = {
   show: {
     x: "100%",
     skew: "0deg",
-    transition: { type: "tween", ease: "easeOut", duration: 0.5 },
+    transition: { type: "tween", ease: "easeOut", duration: 1 },
   },
 };
 
 //acts as the parent Element for our frames so we can make
 // transition (staggerChildren) as per our liking
 export const sliderContainer = {
-  hidden: { opacity: 1 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1, ease: "easeOut" } },
+  hidden: {
+    opacity: 1,
+  },
+  show: {
+    opacity: 1,
+
+    transition: {
+      staggerChildren: 0.15,
+      ease: "easeOut",
+      duration: 1,
+    },
+  },
 };
 
 export const scrollReveal = {

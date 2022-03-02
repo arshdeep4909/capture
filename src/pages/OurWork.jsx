@@ -18,6 +18,8 @@ import {
 
 import { useScroll } from "../components/useScroll";
 import { scrollReveal } from "../animation";
+//Scroll up everytime a new page loads
+import ScrollTop from "../components/ScrollTop";
 
 const OurWork = () => {
   const [element, controls] = useScroll();
@@ -33,7 +35,13 @@ const OurWork = () => {
       </motion.div>
       <Movie>
         <motion.h2 variants={fade}>The Athlete</motion.h2>
-        <motion.div></motion.div>
+        <motion.div
+          variants={lineAnim}
+          initial="hidden"
+          animate="show"
+          className="line"
+          className="line"
+        ></motion.div>
         <Link to="/work/the-athlete">
           <Hide>
             <motion.img variants={photoAnim} src={athlete} alt="athlete" />
@@ -81,6 +89,7 @@ const OurWork = () => {
           </Hide>
         </Link>
       </Movie>
+      <ScrollTop />
     </Work>
   );
 };
