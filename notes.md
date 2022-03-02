@@ -147,3 +147,39 @@ export default Toggle;
       </Toggle>
 
 --so now I am toggling all the content within the tag as I am accessing it using children
+
+# AnimateSharedLayout
+
+import { AnimateSharedLayout } from "framer-motion";
+
+AnimateSharedLayout animatest the part of the page where layout is changing. Here
+we are toggling on the text so that means that the layout is changing so Once we wrap that
+part with <AnimateSharedLayout>
+i.e
+
+<AnimateSharedLayout>
+        <Toggle title="How Do I Start?">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae,
+              laboriosam?
+            </p>
+          </div>
+        </Toggle>
+      </AnimateSharedLayout>
+
+so now it will animate the toggle ,
+Remember we have to go to toggle and add motion to the tag that is been toggled. Also we have
+to add layout to the property.
+
+So we got to toggle and make the changes
+
+<motion.div layout className="questions" onClick={() => setToggle(!toggle)}>
+<motion.h4 layout>{title}</motion.h4>
+{toggle ? children : ""}
+<div className="faq-line"></div>
+</motion.div>
+
+    we add motion on the div and layout in the property, now we did not want the heading
+    in the toggle to animate so we added layout there.
