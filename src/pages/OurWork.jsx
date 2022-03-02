@@ -16,15 +16,15 @@ import {
   lineAnim,
 } from "../animation";
 
+import { useScroll } from "../components/useScroll";
+import { scrollReveal } from "../animation";
+
 const OurWork = () => {
+  const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
+
   return (
-    <Work
-      variants={pageAnimation}
-      initial="hidden"
-      animate="show"
-      exit="exit"
-      style={{ background: "#fff" }}
-    >
+    <Work variants={pageAnimation} initial="hidden" animate="show" exit="exit">
       <motion.div variants={sliderContainer} initial="hidden" animate="show">
         <Frame1 variants={slider}></Frame1>
         <Frame2 variants={slider}></Frame2>
@@ -33,12 +33,7 @@ const OurWork = () => {
       </motion.div>
       <Movie>
         <motion.h2 variants={fade}>The Athlete</motion.h2>
-        <motion.div
-          variants={lineAnim}
-          initial="hidden"
-          animate="show"
-          className="line"
-        ></motion.div>
+        <motion.div></motion.div>
         <Link to="/work/the-athlete">
           <Hide>
             <motion.img variants={photoAnim} src={athlete} alt="athlete" />
@@ -46,7 +41,12 @@ const OurWork = () => {
         </Link>
       </Movie>
 
-      <Movie>
+      <Movie
+        variants={scrollReveal}
+        ref={element}
+        animate={controls}
+        initial="hidden"
+      >
         <h2>The Racer</h2>
         <motion.div
           variants={lineAnim}
@@ -61,7 +61,12 @@ const OurWork = () => {
           </Hide>
         </Link>
       </Movie>
-      <Movie>
+      <Movie
+        variants={scrollReveal}
+        ref={element2}
+        animate={controls2}
+        initial="hidden"
+      >
         <h2>Good Times</h2>
         <motion.div
           variants={lineAnim}
@@ -84,12 +89,13 @@ const Work = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 3rem;
+  background: #fff;
   h2 {
     padding: 1rem 0rem;
   }
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
