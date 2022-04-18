@@ -12,7 +12,7 @@ const MovieDetail = () => {
   //   page that we are on, we can access it individual properties as per needs
   const url = history.location.pathname;
   //state
-  const [movies, setMovies] = useState(MovieState);
+  const [movies] = useState(MovieState);
   const [movie, setMovie] = useState(null);
 
   //useEffect

@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-////Scroll up everytime a new page loads
-import ScrollTop from "./ScrollTop";
 
 const Nav = () => {
   return (
