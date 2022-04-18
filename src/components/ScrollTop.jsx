@@ -12,4 +12,7 @@ const ScrollTop = () => {
   return null;
 };
 
+//whenever we open a new page we want to render the new componenet at the top of the page
+//and not somewhere in the middle
+
 export default ScrollTop;

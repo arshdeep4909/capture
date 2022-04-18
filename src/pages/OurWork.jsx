@@ -40,7 +40,6 @@ const OurWork = () => {
           initial="hidden"
           animate="show"
           className="line"
-          className="line"
         ></motion.div>
         <Link to="/work/the-athlete">
           <Hide>
@@ -61,7 +60,6 @@ const OurWork = () => {
           initial="hidden"
           animate="show"
           className="line"
-          className="line"
         ></motion.div>
         <Link to="/work/the-racer">
           <Hide>
@@ -80,7 +78,6 @@ const OurWork = () => {
           variants={lineAnim}
           initial="hidden"
           animate="show"
-          className="line"
           className="line"
         ></motion.div>
         <Link to="/work/good-times">
